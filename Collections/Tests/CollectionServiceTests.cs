@@ -62,7 +62,7 @@ namespace Tests
             Assert.Equal(11, result.Count());
             Assert.Equal("Wojak", result.First().Name);
             Assert.Equal(11, result.First().Age);
-            Assert.Equal("Dirty Slut", result.Last().Name);
+            Assert.Equal("Dirty slut", result.Last().Name);
             Assert.Equal(69, result.Last().Age);
         }
 
@@ -118,7 +118,7 @@ namespace Tests
             foreach (var person in result)
             {
                 Assert.Contains("slut", person.Name.ToLower());
-                Assert.Contains("Menchester", person.City.ToLower());
+                Assert.Contains("menchester", person.City.ToLower());
             }
         }
 

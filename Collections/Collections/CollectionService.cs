@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Collections
 {
@@ -14,27 +15,29 @@ namespace Collections
 
         public int GetTotalPeopleCount()
         {
-            throw new NotImplementedException();
+            return people.Count;
         }
 
         public IEnumerable<string> GetAllNames()
         {
-            throw new NotImplementedException();
+            var Name = people.Select(i => i.Name);
+            return Name;
+
         }
 
         public IEnumerable<string> GetAllNamesNoDuplicates()
         {
-            throw new NotImplementedException();
+            return GetAllNames().Distinct()   ;
         }
 
         public IEnumerable<Person> GetPeopleEligibleToDrive()
         {
-            throw new NotImplementedException();
+            return people.Where(i => i.Age >= 18);
         }
 
         public IEnumerable<Person> GetPeopleOrderedByAge()
         {
-            throw new NotImplementedException();
+            return people.OrderBy(i => i.Age);
         }
 
         public IEnumerable<Person> GetPeopleWithInvalidEmails()
@@ -44,22 +47,21 @@ namespace Collections
 
         public IEnumerable<Person> GetPeopleWithFuckYouEmailProvider()
         {
-            throw new NotImplementedException();
-        }
+            return people.Where(item => item.Email.EndsWith("@fuck.you"));        }
 
         public IEnumerable<Person> GetAllSluts()
         {
-            throw new NotImplementedException();
+            return people.Where(item => item.Name.Contains("slut", StringComparison.OrdinalIgnoreCase));
         }
 
         public IEnumerable<string> GetSlutsPhoneNumbers()
         {
-            throw new NotImplementedException();
+            return GetAllSluts().Select(item => item.Phone);
         }
 
         public IEnumerable<Person> GetAllSlutsFromMenchester()
         {
-            throw new NotImplementedException();
+            return GetAllSluts().Where(item => item.City=="Menchester");
         }
     }
 }
